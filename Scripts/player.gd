@@ -40,9 +40,13 @@ func _on_area_2d_area_entered(area):
 		print(" ")
 		is_red = true
 		is_blue = false
+		
 		if(modulate == Color(1, 0, 0, 1) and (is_red)):
 			print("Player is Red and the platform is Red")
 			print(" ")		
+		if(modulate == Color(1, 0, 0, 1) and (is_red == false)):
+			print("Wrong color")
+			
 #-------------------------------------------------------------------------------
 
 #What happens if the player is on the blue platform
@@ -54,4 +58,6 @@ func _on_area_2d_area_entered(area):
 		if(modulate == Color(0, 0, 1, 1) and (is_blue)):
 			print("Player is Blue and the platform is blu")
 			print(" ")
+		if(modulate == Color(0, 0, 1, 1) and (is_blue == false)):
+			print("Wrong color")
 	#W-------------------------------------------------
