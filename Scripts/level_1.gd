@@ -20,3 +20,17 @@ func _on_button_pressed():
 func _on_blue_button_pressed():
 	print("BLUEEEEEEEEEEEEEEEEEEEEEEEEEEE")
 	player.modulate = Color("blue")
+
+#start button
+func _on_start_button_pressed():
+	
+	pass # Replace with function body.
+	
+
+
+func _on_option_button_item_selected(index):
+	match index:
+		0:print("15🕓")
+		1:print("30🕓")
+		2:print("45🕓")
+		3:print("60🕓")
