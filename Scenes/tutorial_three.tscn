@@ -68,7 +68,7 @@ scale = Vector2(1, 1.34286)
 shape = SubResource("WorldBoundaryShape2D_dy8s5")
 
 [node name="Blue_Platform" parent="." instance=ExtResource("4_8uwca")]
-position = Vector2(56, -265)
+position = Vector2(62, -370)
 
 [node name="Label" type="Label" parent="."]
 modulate = Color(1, 1, 0, 1)
@@ -79,7 +79,7 @@ offset_bottom = -373.0
 scale = Vector2(10.6919, -6.55851)
 
 [node name="Tutorial_collision" parent="." instance=ExtResource("6_uufx4")]
-position = Vector2(-107, -532)
+position = Vector2(-110, -574)
 
 [connection signal="pressed" from="Player/Red Button" to="." method="_on_red_button_pressed"]
 [connection signal="pressed" from="Player/Blue Button" to="." method="_on_blue_button_pressed"]
