@@ -21,6 +21,8 @@ Player=""
 blue_platform=""
 red_platform=""
 Tutorial_One_Red_Platform=""
+Tutorial_One_BLue_Platform=""
+Tutorial_Done=""
 
 [input]
 

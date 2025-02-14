@@ -32,20 +32,22 @@ limit_smoothed = true
 [node name="Red Button" type="Button" parent="Player"]
 modulate = Color(1, 0, 0, 1)
 self_modulate = Color(1, 0, 0, 1)
-offset_left = -192.0
+offset_left = -149.0
 offset_top = -157.331
-offset_right = -108.0
-offset_bottom = -77.3313
-text = "RED"
+offset_right = -13.0
+offset_bottom = -21.3313
+scale = Vector2(0.533333, 0.619834)
+icon = ExtResource("2_wamyy")
 
 [node name="Blue Button" type="Button" parent="Player"]
 modulate = Color(0, 0, 1, 1)
 self_modulate = Color(0, 0, 1, 1)
-offset_left = 96.0
-offset_top = -166.709
-offset_right = 180.0
-offset_bottom = -79.7087
-text = "Blue"
+offset_left = 83.0
+offset_top = -152.122
+offset_right = 219.0
+offset_bottom = -16.1217
+scale = Vector2(0.602963, 0.581375)
+icon = ExtResource("2_wamyy")
 
 [node name="Blue_Platform" parent="." instance=ExtResource("4_rym2n")]
 position = Vector2(1002, 562)

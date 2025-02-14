@@ -1,0 +1,63 @@
+[gd_scene load_steps=9 format=3 uid="uid://dkik1ybuavdy4"]
+
+[ext_resource type="PackedScene" uid="uid://qergnhgegntv" path="res://Scenes/basic_platform.tscn" id="1_o7enj"]
+[ext_resource type="Script" path="res://Scripts/tutorial_two.gd" id="1_p55vb"]
+[ext_resource type="PackedScene" uid="uid://dtv183wtshhyf" path="res://Scenes/Red Platform.tscn" id="2_44rmm"]
+[ext_resource type="PackedScene" uid="uid://di4pl6rwwassr" path="res://Scenes/player.tscn" id="3_nmxqm"]
+[ext_resource type="PackedScene" uid="uid://bptigceg6y706" path="res://Scenes/Tutorial_One_Blue_Platform.tscn" id="5_mrdgh"]
+[ext_resource type="Texture2D" uid="uid://b4bguny61otp5" path="res://icon.svg" id="5_vs1k8"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_4gujc"]
+normal = Vector2(0.999769, -0.0215004)
+distance = -1.34685
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_blxqc"]
+normal = Vector2(-0.999096, 0.0425146)
+distance = -21.8492
+
+[node name="Tutorial Two" type="Node2D"]
+script = ExtResource("1_p55vb")
+
+[node name="Basic Platform" parent="." instance=ExtResource("1_o7enj")]
+
+[node name="Red Platform" parent="." instance=ExtResource("2_44rmm")]
+position = Vector2(9, 147)
+scale = Vector2(0.882254, 0.820128)
+
+[node name="Player" parent="." instance=ExtResource("3_nmxqm")]
+position = Vector2(343, 451)
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+position_smoothing_enabled = true
+
+[node name="Red Button" type="Button" parent="Player"]
+modulate = Color(1, 0, 0, 1)
+self_modulate = Color(1, 0, 0, 1)
+offset_left = -149.0
+offset_top = -157.331
+offset_right = -13.0
+offset_bottom = -21.3313
+scale = Vector2(0.533333, 0.619834)
+icon = ExtResource("5_vs1k8")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(11, 422)
+scale = Vector2(7, 14.48)
+shape = SubResource("WorldBoundaryShape2D_4gujc")
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="."]
+position = Vector2(11, 422)
+scale = Vector2(7, 14.48)
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D2"]
+position = Vector2(108, -10.4286)
+scale = Vector2(1, 1.34286)
+shape = SubResource("WorldBoundaryShape2D_blxqc")
+
+[node name="TutorialOneBluePlatform" parent="." instance=ExtResource("5_mrdgh")]
+position = Vector2(-17, -161)
+scale = Vector2(0.907677, -0.774097)
+
+[connection signal="pressed" from="Player/Red Button" to="." method="_on_red_button_pressed"]

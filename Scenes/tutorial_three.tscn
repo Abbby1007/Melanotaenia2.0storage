@@ -1,0 +1,85 @@
+[gd_scene load_steps=10 format=3 uid="uid://xh44o6y0u4c0"]
+
+[ext_resource type="PackedScene" uid="uid://qergnhgegntv" path="res://Scenes/basic_platform.tscn" id="1_edw25"]
+[ext_resource type="Script" path="res://Scripts/tutorial_three.gd" id="1_hv0l7"]
+[ext_resource type="PackedScene" uid="uid://dtv183wtshhyf" path="res://Scenes/Red Platform.tscn" id="2_u5hcu"]
+[ext_resource type="PackedScene" uid="uid://di4pl6rwwassr" path="res://Scenes/player.tscn" id="3_8eq3n"]
+[ext_resource type="PackedScene" uid="uid://bx8vvxu7aades" path="res://Scenes/Blue_platform.tscn" id="4_8uwca"]
+[ext_resource type="Texture2D" uid="uid://b4bguny61otp5" path="res://icon.svg" id="5_tln7d"]
+[ext_resource type="PackedScene" uid="uid://bmi86vofje2h0" path="res://Scenes/Done_tutorial_collison.tscn" id="6_uufx4"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_ggb53"]
+normal = Vector2(0.999769, -0.0215004)
+distance = -1.34685
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_dy8s5"]
+normal = Vector2(-0.999096, 0.0425146)
+distance = -21.8492
+
+[node name="Tutorial Three" type="Node2D"]
+script = ExtResource("1_hv0l7")
+
+[node name="Basic Platform" parent="." instance=ExtResource("1_edw25")]
+
+[node name="Red Platform" parent="." instance=ExtResource("2_u5hcu")]
+position = Vector2(9, 147)
+scale = Vector2(0.882254, 0.820128)
+
+[node name="Player" parent="." instance=ExtResource("3_8eq3n")]
+position = Vector2(343, 451)
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+position_smoothing_enabled = true
+
+[node name="Red Button" type="Button" parent="Player"]
+modulate = Color(1, 0, 0, 1)
+self_modulate = Color(1, 0, 0, 1)
+offset_left = -149.0
+offset_top = -157.331
+offset_right = -13.0
+offset_bottom = -21.3313
+scale = Vector2(0.533333, 0.619834)
+icon = ExtResource("5_tln7d")
+
+[node name="Blue Button" type="Button" parent="Player"]
+modulate = Color(0, 0, 1, 1)
+self_modulate = Color(0, 0, 1, 1)
+offset_left = 83.0
+offset_top = -152.122
+offset_right = 219.0
+offset_bottom = -16.1217
+scale = Vector2(0.602963, 0.581375)
+icon = ExtResource("5_tln7d")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(11, 422)
+scale = Vector2(7, 14.48)
+shape = SubResource("WorldBoundaryShape2D_ggb53")
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="."]
+position = Vector2(11, 422)
+scale = Vector2(7, 14.48)
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D2"]
+position = Vector2(108, -10.4286)
+scale = Vector2(1, 1.34286)
+shape = SubResource("WorldBoundaryShape2D_dy8s5")
+
+[node name="Blue_Platform" parent="." instance=ExtResource("4_8uwca")]
+position = Vector2(56, -265)
+
+[node name="Label" type="Label" parent="."]
+modulate = Color(1, 1, 0, 1)
+offset_left = 209.0
+offset_top = -396.0
+offset_right = 249.0
+offset_bottom = -373.0
+scale = Vector2(10.6919, -6.55851)
+
+[node name="Tutorial_collision" parent="." instance=ExtResource("6_uufx4")]
+position = Vector2(-107, -532)
+
+[connection signal="pressed" from="Player/Red Button" to="." method="_on_red_button_pressed"]
+[connection signal="pressed" from="Player/Blue Button" to="." method="_on_blue_button_pressed"]

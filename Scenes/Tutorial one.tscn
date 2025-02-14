@@ -1,34 +1,56 @@
 [gd_scene load_steps=7 format=3 uid="uid://vulk82tpa5i"]
 
-[ext_resource type="Script" path="res://Scripts/tutorial_one.gd" id="1_as0d6"]
 [ext_resource type="PackedScene" uid="uid://qergnhgegntv" path="res://Scenes/basic_platform.tscn" id="1_dahs2"]
 [ext_resource type="PackedScene" uid="uid://di4pl6rwwassr" path="res://Scenes/player.tscn" id="2_pklq6"]
 [ext_resource type="PackedScene" uid="uid://wg7vtu4o7quh" path="res://Scenes/TutorialOneRedPlatform.tscn" id="4_ka3si"]
+
+[sub_resource type="GDScript" id="GDScript_m21ca"]
+script/source = "extends Node2D
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta):
+	pass
+"
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_utnpg"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_ry5d8"]
 
 [node name="Tutorial 1" type="Node2D"]
-script = ExtResource("1_as0d6")
+script = SubResource("GDScript_m21ca")
 
 [node name="Basic Platform" parent="." instance=ExtResource("1_dahs2")]
+scale = Vector2(1.12, 1)
 
 [node name="Player" parent="." instance=ExtResource("2_pklq6")]
 position = Vector2(292, 449)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(1.99997, 338)
-rotation = 1.5708
-scale = Vector2(7, 7)
-shape = SubResource("WorldBoundaryShape2D_utnpg")
+[node name="Camera2D" type="Camera2D" parent="Player"]
+position_smoothing_enabled = true
 
 [node name="TutorialOneRedPlatofrm" parent="." instance=ExtResource("4_ka3si")]
-position = Vector2(972, 475)
-scale = Vector2(0.461272, 1)
+position = Vector2(14, 244)
+scale = Vector2(0.904581, -0.541077)
 
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
-position = Vector2(1517, 398)
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2(1.99997, 338)
+rotation = 1.5708
+scale = Vector2(19.92, 7)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+scale = Vector2(1, 1)
+shape = SubResource("WorldBoundaryShape2D_utnpg")
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D2"]
+position = Vector2(963, 493)
 rotation = -1.60219
 scale = Vector2(7, 7)
 shape = SubResource("WorldBoundaryShape2D_ry5d8")

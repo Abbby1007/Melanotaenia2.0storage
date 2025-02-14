@@ -6,6 +6,8 @@ const JUMP_VELOCITY = -1000.0
 
 @onready var sprite_2d = $Sprite2D.modulate
 @onready var player = $"."
+@onready var label = $"../Label"
+
 
 
 var is_red = false
@@ -66,6 +68,17 @@ func _on_area_2d_area_entered(area):
 			get_tree().reload_current_scene()
 			
 	#W-------------------------------------------------
-	
+	# for tutorial Level one
 	if area.get_parent().is_in_group("Tutorial_One_Red_Platform"):
 		print("TELEPORT")
+		get_tree().change_scene_to_file("res://Scenes/TutorialTwo.tscn")
+	#---------------------------------------------------------------
+	
+	#For tutorial Level two
+	if area.get_parent().is_in_group("Tutorial_One_BLue_Platform"):
+		get_tree().change_scene_to_file("res://Scenes/tutorial_three.tscn")
+	#------------------------------------------------------
+	
+	if area.get_parent().is_in_group("Tutorial_Done"):
+		label.text = "DONEEEE"
+		
