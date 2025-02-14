@@ -5,6 +5,7 @@ const SPEED = 300.0
 const JUMP_VELOCITY = -1000.0
 
 @onready var sprite_2d = $Sprite2D.modulate
+@onready var player = $"."
 
 
 var is_red = false
@@ -31,7 +32,7 @@ func _physics_process(delta):
 
 	move_and_slide()
 	
-# This checks to see what the player is collided to
+# This checks to see what the player is collided toz
 
 #What happens if the player is on the red platform
 func _on_area_2d_area_entered(area):
@@ -44,8 +45,9 @@ func _on_area_2d_area_entered(area):
 		if(modulate == Color(1, 0, 0, 1) and (is_red)):
 			print("Player is Red and the platform is Red")
 			print(" ")		
-		if(modulate == Color(1, 0, 0, 1) and (is_red == false)):
-			print("Wrong color")
+		if(modulate != Color(1, 0, 0, 1)):
+			print(" The player is not red")
+			get_tree().reload_current_scene()
 			
 #-------------------------------------------------------------------------------
 
@@ -58,6 +60,12 @@ func _on_area_2d_area_entered(area):
 		if(modulate == Color(0, 0, 1, 1) and (is_blue)):
 			print("Player is Blue and the platform is blu")
 			print(" ")
-		if(modulate == Color(0, 0, 1, 1) and (is_blue == false)):
-			print("Wrong color")
+			
+		if(modulate != Color(0, 0, 1, 1)):
+			print("The player is not blue")
+			get_tree().reload_current_scene()
+			
 	#W-------------------------------------------------
+	
+	if area.get_parent().is_in_group("Tutorial_One_Red_Platform"):
+		print("TELEPORT")

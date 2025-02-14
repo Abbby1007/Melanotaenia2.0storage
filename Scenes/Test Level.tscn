@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=3 uid="uid://7hou7iv56p1w"]
 
-[ext_resource type="Script" path="res://Scenes/test_level.gd" id="1_l35mf"]
+[ext_resource type="Script" path="res://test_level.gd" id="1_l35mf"]
 [ext_resource type="Texture2D" uid="uid://b4bguny61otp5" path="res://icon.svg" id="2_wamyy"]
 [ext_resource type="PackedScene" uid="uid://di4pl6rwwassr" path="res://Scenes/player.tscn" id="3_4tu7s"]
 [ext_resource type="PackedScene" uid="uid://bx8vvxu7aades" path="res://Scenes/Blue_platform.tscn" id="4_rym2n"]
@@ -29,22 +29,23 @@ position = Vector2(121, 455)
 [node name="Camera2D" type="Camera2D" parent="Player"]
 limit_smoothed = true
 
-[node name="Color Choice" type="OptionButton" parent="."]
-offset_left = 136.0
-offset_top = 95.0
-offset_right = 423.0
-offset_bottom = 195.0
-item_count = 2
-popup/item_0/text = "Red"
-popup/item_1/text = "Blue"
-popup/item_1/id = 1
+[node name="Red Button" type="Button" parent="Player"]
+modulate = Color(1, 0, 0, 1)
+self_modulate = Color(1, 0, 0, 1)
+offset_left = -192.0
+offset_top = -157.331
+offset_right = -108.0
+offset_bottom = -77.3313
+text = "RED"
 
-[node name="start" type="Button" parent="."]
-offset_left = 570.0
-offset_top = 151.0
-offset_right = 732.0
-offset_bottom = 219.0
-text = "Start button"
+[node name="Blue Button" type="Button" parent="Player"]
+modulate = Color(0, 0, 1, 1)
+self_modulate = Color(0, 0, 1, 1)
+offset_left = 96.0
+offset_top = -166.709
+offset_right = 180.0
+offset_bottom = -79.7087
+text = "Blue"
 
 [node name="Blue_Platform" parent="." instance=ExtResource("4_rym2n")]
 position = Vector2(1002, 562)
@@ -54,5 +55,5 @@ scale = Vector2(0.48362, 1.62192)
 position = Vector2(997, 333)
 scale = Vector2(0.385875, 0.934505)
 
-[connection signal="item_selected" from="Color Choice" to="." method="_on_color_choice_item_selected"]
-[connection signal="pressed" from="start" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="Player/Red Button" to="." method="_on_red_button_pressed"]
+[connection signal="pressed" from="Player/Blue Button" to="." method="_on_blue_button_pressed"]

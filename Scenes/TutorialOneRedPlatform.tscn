@@ -1,0 +1,34 @@
+[gd_scene load_steps=4 format=3 uid="uid://wg7vtu4o7quh"]
+
+[ext_resource type="Texture2D" uid="uid://b4bguny61otp5" path="res://icon.svg" id="1_ixc1l"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_blj01"]
+size = Vector2(1023, 86)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ouvuc"]
+size = Vector2(1018.5, 124)
+
+[node name="TutorialOneRedPlatofrm" type="Node2D" groups=["Tutorial_One_Red_Platform"]]
+position = Vector2(40, 571)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(1, 0, 0, 1)
+self_modulate = Color(1, 0, 0, 1)
+position = Vector2(523, 14)
+scale = Vector2(8.17188, 1)
+texture = ExtResource("1_ixc1l")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+visible = false
+position = Vector2(525.5, 14.5)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(3, -5.5)
+shape = SubResource("RectangleShape2D_blj01")
+one_way_collision = true
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="AreaCollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(518.75, 9)
+shape = SubResource("RectangleShape2D_ouvuc")
