@@ -29,7 +29,7 @@ script = SubResource("GDScript_m21ca")
 scale = Vector2(1.12, 1)
 
 [node name="Player" parent="." instance=ExtResource("2_pklq6")]
-position = Vector2(292, 449)
+position = Vector2(385, 459)
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 position_smoothing_enabled = true
@@ -53,3 +53,6 @@ position = Vector2(963, 493)
 rotation = -1.60219
 scale = Vector2(7, 7)
 shape = SubResource("WorldBoundaryShape2D_ry5d8")
+
+[node name="TileMap" type="TileMap" parent="."]
+format = 2

@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://wg7vtu4o7quh"]
 
-[ext_resource type="Texture2D" uid="uid://b4bguny61otp5" path="res://icon.svg" id="1_ixc1l"]
+[ext_resource type="Texture2D" uid="uid://o55a4bt2q2bv" path="res://Assests/REd.png" id="1_fra8v"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_blj01"]
 size = Vector2(1023, 86)
@@ -14,9 +14,9 @@ position = Vector2(40, 571)
 [node name="Sprite2D" type="Sprite2D" parent="."]
 modulate = Color(1, 0, 0, 1)
 self_modulate = Color(1, 0, 0, 1)
-position = Vector2(523, 14)
-scale = Vector2(8.17188, 1)
-texture = ExtResource("1_ixc1l")
+position = Vector2(519, 8.50003)
+scale = Vector2(126.25, 14.375)
+texture = ExtResource("1_fra8v")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 visible = false

@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://dtv183wtshhyf"]
 
-[ext_resource type="Texture2D" uid="uid://b4bguny61otp5" path="res://icon.svg" id="1_k55ec"]
+[ext_resource type="Texture2D" uid="uid://o55a4bt2q2bv" path="res://Assests/REd.png" id="1_b2ox5"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fqfac"]
 size = Vector2(1023, 86)
@@ -12,12 +12,11 @@ size = Vector2(1057, 155)
 modulate = Color(1, 0, 0, 1)
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(525, 16)
-scale = Vector2(8.17188, 1)
-texture = ExtResource("1_k55ec")
+position = Vector2(519.5, 11.5)
+scale = Vector2(131.875, 18.875)
+texture = ExtResource("1_b2ox5")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
-visible = false
 position = Vector2(525.5, 14.5)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]

@@ -6,12 +6,14 @@ const JUMP_VELOCITY = -1000.0
 
 @onready var sprite_2d = $Sprite2D.modulate
 @onready var player = $"."
-@onready var label = $"../Label"
+@onready var label = $"../Win_text"
 
 
 
 var is_red = false
-var is_blue = true
+var is_blue = false
+var is_green = false
+var is_orange = false
 
 
 
@@ -36,6 +38,7 @@ func _physics_process(delta):
 	
 # This checks to see what the player is collided toz
 
+# CHECKS TO SEEEEE WHAT PLATFORM THE PLAYER IS TOUCHING --------------------------------------------------
 #What happens if the player is on the red platform
 func _on_area_2d_area_entered(area):
 	if area.get_parent().is_in_group("red_platform"):
@@ -43,6 +46,8 @@ func _on_area_2d_area_entered(area):
 		print(" ")
 		is_red = true
 		is_blue = false
+		is_green = false
+		is_orange = false
 		
 		if(modulate == Color(1, 0, 0, 1) and (is_red)):
 			print("Player is Red and the platform is Red")
@@ -59,6 +64,9 @@ func _on_area_2d_area_entered(area):
 		print(" ")
 		is_red = false
 		is_blue = true
+		is_green = false
+		is_orange = false
+		
 		if(modulate == Color(0, 0, 1, 1) and (is_blue)):
 			print("Player is Blue and the platform is blu")
 			print(" ")
@@ -68,6 +76,47 @@ func _on_area_2d_area_entered(area):
 			get_tree().reload_current_scene()
 			
 	#W-------------------------------------------------
+	
+	
+	#What happens if the player is on the green platform
+	if area.get_parent().is_in_group("green_platform"):
+		print("Green collide")
+		print(" ")
+		is_red = false
+		is_blue = false
+		is_green = true
+		is_orange = false
+		if(modulate == Color(0, 0.502, 0, 1) and (is_green)):
+			print("Player is green and the platform is green")
+			print(" ")
+			
+		if(modulate != Color(0, 0, 1, 1)):
+			print("The player is not green")
+			get_tree().reload_current_scene()
+			
+	#--------------------------------------------------
+	
+		#What happens if the player is on the orange platform
+	if area.get_parent().is_in_group("orange_platform"):
+		print("Orange collide")
+		print(" ")
+		is_red = false
+		is_blue = false
+		is_green = false
+		is_orange = true
+		if(modulate == Color(1, 0.4, 0, 1) and (is_orange)):
+			print("Player is orange and the platform is orange")
+			print(" ")
+			
+		if(modulate != Color(0, 0, 1, 1)):
+			print("The player is not orange")
+			get_tree().reload_current_scene()
+			
+	#--------------------------------------------------
+	
+	# CHECKS TO SEEEEE WHAT PLATFORM THE PLAYER IS TOUCHING --------------------------------------------------
+	
+	#TUOTIRAL PLATFROMSSSSSSSSSS ________________________________________________________________________________
 	# for tutorial Level one
 	if area.get_parent().is_in_group("Tutorial_One_Red_Platform"):
 		print("TELEPORT")
@@ -79,6 +128,8 @@ func _on_area_2d_area_entered(area):
 		get_tree().change_scene_to_file("res://Scenes/tutorial_three.tscn")
 	#------------------------------------------------------
 	
+	#Change it to have the player be teleported to the Main Menu or Level 1
 	if area.get_parent().is_in_group("Tutorial_Done"):
 		label.text = "🏁🏁🏁🏁🏁🏁🏁🏁"
 		
+	#TUOTIRAL PLATFROMSSSSSSSSSS ________________________________________________________________________________

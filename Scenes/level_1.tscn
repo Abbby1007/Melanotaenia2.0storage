@@ -1,0 +1,50 @@
+[gd_scene load_steps=8 format=3 uid="uid://bn4dvgrc44mhw"]
+
+[ext_resource type="PackedScene" uid="uid://qergnhgegntv" path="res://Scenes/basic_platform.tscn" id="1_b6jhc"]
+[ext_resource type="PackedScene" uid="uid://dtv183wtshhyf" path="res://Scenes/Red Platform.tscn" id="2_kk1aq"]
+[ext_resource type="PackedScene" uid="uid://bx8vvxu7aades" path="res://Scenes/Blue_platform.tscn" id="3_eeavn"]
+[ext_resource type="PackedScene" uid="uid://dc71pk86uocta" path="res://Scenes/green_platform.tscn" id="4_6ngtc"]
+[ext_resource type="PackedScene" uid="uid://cm2g037qxwuew" path="res://Scenes/orange_platform.tscn" id="5_o7ikv"]
+[ext_resource type="PackedScene" uid="uid://di4pl6rwwassr" path="res://Scenes/player.tscn" id="6_40gxr"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_7w4kx"]
+normal = Vector2(0.999961, -0.00882951)
+
+[node name="Level 1" type="Node2D"]
+
+[node name="Basic Platform" parent="." instance=ExtResource("1_b6jhc")]
+position = Vector2(7, -10)
+scale = Vector2(2, 1)
+
+[node name="Red Platform" parent="." instance=ExtResource("2_kk1aq")]
+position = Vector2(154, 199)
+scale = Vector2(0.360001, 0.4)
+
+[node name="Blue_Platform" parent="." instance=ExtResource("3_eeavn")]
+position = Vector2(654, 181)
+scale = Vector2(0.359999, 0.868464)
+
+[node name="Green_Platform" parent="." instance=ExtResource("4_6ngtc")]
+position = Vector2(1080, 181)
+scale = Vector2(2.1462, 2.58175)
+
+[node name="Orange_Platform" parent="." instance=ExtResource("5_o7ikv")]
+position = Vector2(1476, 185)
+scale = Vector2(2.11855, 2.48745)
+
+[node name="Player" parent="." instance=ExtResource("6_40gxr")]
+position = Vector2(435, 440)
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+position_smoothing_enabled = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(13, 0)
+scale = Vector2(10, 10)
+shape = SubResource("WorldBoundaryShape2D_7w4kx")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
+position = Vector2(1855, 89)
+rotation = 3.11198
+scale = Vector2(10, 10)
+shape = SubResource("WorldBoundaryShape2D_7w4kx")

@@ -1,0 +1,28 @@
+[gd_scene load_steps=4 format=3 uid="uid://cm2g037qxwuew"]
+
+[ext_resource type="Texture2D" uid="uid://bpbr723m7p380" path="res://Assests/ORange.png" id="1_jt47m"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_10rcr"]
+size = Vector2(140, 26)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pyr1q"]
+size = Vector2(140, 26)
+
+[node name="Orange_Platform" type="Node2D" groups=["orange_platform"]]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(66, 9)
+scale = Vector2(17.5, 3.25)
+texture = ExtResource("1_jt47m")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="BodyCollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(66, 9)
+shape = SubResource("RectangleShape2D_10rcr")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="AreaCollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(66, 9)
+shape = SubResource("RectangleShape2D_pyr1q")
