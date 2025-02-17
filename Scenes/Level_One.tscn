@@ -1,0 +1,105 @@
+[gd_scene load_steps=9 format=3 uid="uid://meqo11m8163p"]
+
+[ext_resource type="Script" path="res://Scripts/Level_One.gd" id="1_nyao4"]
+[ext_resource type="PackedScene" uid="uid://qergnhgegntv" path="res://Scenes/basic_platform.tscn" id="2_8alop"]
+[ext_resource type="PackedScene" uid="uid://dtv183wtshhyf" path="res://Scenes/Red Platform.tscn" id="3_1f2wf"]
+[ext_resource type="PackedScene" uid="uid://bx8vvxu7aades" path="res://Scenes/Blue_platform.tscn" id="4_ykkdp"]
+[ext_resource type="PackedScene" uid="uid://dc71pk86uocta" path="res://Scenes/green_platform.tscn" id="5_44wh1"]
+[ext_resource type="PackedScene" uid="uid://cm2g037qxwuew" path="res://Scenes/orange_platform.tscn" id="6_58w2e"]
+[ext_resource type="PackedScene" uid="uid://di4pl6rwwassr" path="res://Scenes/player.tscn" id="7_d0nvf"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_2mhnx"]
+normal = Vector2(0.999961, -0.00882951)
+
+[node name="test" type="Node2D"]
+script = ExtResource("1_nyao4")
+
+[node name="Basic Platform" parent="." instance=ExtResource("2_8alop")]
+position = Vector2(7, -10)
+scale = Vector2(2, 1)
+
+[node name="Red Platform" parent="." instance=ExtResource("3_1f2wf")]
+position = Vector2(154, 199)
+scale = Vector2(0.360001, 0.4)
+
+[node name="Blue_Platform" parent="." instance=ExtResource("4_ykkdp")]
+position = Vector2(654, 181)
+scale = Vector2(0.359999, 0.868464)
+
+[node name="Green_Platform" parent="." instance=ExtResource("5_44wh1")]
+position = Vector2(1080, 181)
+scale = Vector2(2.1462, 2.58175)
+
+[node name="Orange_Platform" parent="." instance=ExtResource("6_58w2e")]
+position = Vector2(1476, 185)
+scale = Vector2(2.11855, 2.48745)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2(13, 0)
+scale = Vector2(10, 10)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+shape = SubResource("WorldBoundaryShape2D_2mhnx")
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="."]
+position = Vector2(13, 0)
+scale = Vector2(10, 10)
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D2"]
+position = Vector2(184.2, 8.9)
+rotation = 3.11198
+shape = SubResource("WorldBoundaryShape2D_2mhnx")
+
+[node name="Player" parent="." instance=ExtResource("7_d0nvf")]
+position = Vector2(579, 378)
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+position_smoothing_enabled = true
+
+[node name="_S_ Key (Red)" type="Label" parent="Player"]
+modulate = Color(1, 0, 0, 1)
+self_modulate = Color(1, 0, 0, 1)
+offset_left = -219.0
+offset_top = -136.493
+offset_right = -179.0
+offset_bottom = -113.493
+scale = Vector2(3.75088, 5.03338)
+text = "S"
+horizontal_alignment = 1
+uppercase = true
+
+[node name="_W_ Key (Blue)" type="Label" parent="Player"]
+modulate = Color(0, 0, 1, 1)
+self_modulate = Color(0, 0, 1, 1)
+offset_left = 91.0
+offset_top = -133.367
+offset_right = 131.0
+offset_bottom = -110.367
+scale = Vector2(3.75088, 5.03338)
+text = "W"
+horizontal_alignment = 1
+uppercase = true
+
+[node name="_Q_ Key (Green)" type="Label" parent="Player"]
+modulate = Color(0, 0.501961, 0, 1)
+self_modulate = Color(0, 0.501961, 0, 1)
+offset_left = -220.0
+offset_top = -32.2998
+offset_right = -180.0
+offset_bottom = -9.2998
+scale = Vector2(3.75088, 5.03338)
+text = "Q"
+horizontal_alignment = 1
+uppercase = true
+
+[node name="_E_ Key (Orange)" type="Label" parent="Player"]
+modulate = Color(1, 0.4, 0, 1)
+self_modulate = Color(1, 0.4, 0, 1)
+offset_left = 93.0
+offset_top = -23.9644
+offset_right = 133.0
+offset_bottom = -0.964386
+scale = Vector2(3.75088, 5.03338)
+text = "E"
+horizontal_alignment = 1
+uppercase = true

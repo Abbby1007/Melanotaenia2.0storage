@@ -3,7 +3,7 @@ extends Node2D
 @onready var player = $Player
 
 
-func _physics_process(delta):
+func _process(delta):
 	#Change to red
 	if Input.is_action_just_pressed("Red"):
 		player.modulate = Color("red")
@@ -22,4 +22,4 @@ func _physics_process(delta):
 	
 #MOve on button
 func _on_move_on_button_pressed():
-	get_tree().change_scene_to_file("res://Scenes/level_1.tscn")
+	get_tree().change_scene_to_file("res://Scenes/Level_One.tscn")

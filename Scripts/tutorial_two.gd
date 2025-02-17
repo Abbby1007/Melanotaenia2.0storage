@@ -3,7 +3,7 @@ extends Node2D
 @onready var player = $Player
 
 
-func _physics_process(delta):
+func _process(delta):
 	if Input.is_action_just_pressed("Red"):
 		player.modulate = Color("red")
 #red button

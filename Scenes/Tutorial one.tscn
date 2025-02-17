@@ -53,6 +53,3 @@ position = Vector2(963, 493)
 rotation = -1.60219
 scale = Vector2(7, 7)
 shape = SubResource("WorldBoundaryShape2D_ry5d8")
-
-[node name="TileMap" type="TileMap" parent="."]
-format = 2

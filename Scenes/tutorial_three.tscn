@@ -42,7 +42,7 @@ text = "S"
 horizontal_alignment = 1
 uppercase = true
 
-[node name="_W_ Key (Red)" type="Label" parent="Player"]
+[node name="_W_ Key (Blue)" type="Label" parent="Player"]
 modulate = Color(0, 0, 1, 1)
 self_modulate = Color(0, 0, 1, 1)
 offset_left = 89.0

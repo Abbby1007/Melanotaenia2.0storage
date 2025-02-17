@@ -90,7 +90,7 @@ func _on_area_2d_area_entered(area):
 			print("Player is green and the platform is green")
 			print(" ")
 			
-		if(modulate != Color(0, 0, 1, 1)):
+		if(modulate != Color(0, 0.502, 0, 1)):
 			print("The player is not green")
 			get_tree().reload_current_scene()
 			
@@ -108,7 +108,7 @@ func _on_area_2d_area_entered(area):
 			print("Player is orange and the platform is orange")
 			print(" ")
 			
-		if(modulate != Color(0, 0, 1, 1)):
+		if(modulate != Color(1, 0.4, 0, 1)):
 			print("The player is not orange")
 			get_tree().reload_current_scene()
 			
