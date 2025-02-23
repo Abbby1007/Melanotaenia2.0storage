@@ -1,11 +1,9 @@
-[gd_scene load_steps=9 format=3 uid="uid://meqo11m8163p"]
+[gd_scene load_steps=7 format=3 uid="uid://meqo11m8163p"]
 
 [ext_resource type="Script" path="res://Scripts/Level_One.gd" id="1_nyao4"]
 [ext_resource type="PackedScene" uid="uid://qergnhgegntv" path="res://Scenes/basic_platform.tscn" id="2_8alop"]
 [ext_resource type="PackedScene" uid="uid://dtv183wtshhyf" path="res://Scenes/Red Platform.tscn" id="3_1f2wf"]
 [ext_resource type="PackedScene" uid="uid://bx8vvxu7aades" path="res://Scenes/Blue_platform.tscn" id="4_ykkdp"]
-[ext_resource type="PackedScene" uid="uid://dc71pk86uocta" path="res://Scenes/green_platform.tscn" id="5_44wh1"]
-[ext_resource type="PackedScene" uid="uid://cm2g037qxwuew" path="res://Scenes/orange_platform.tscn" id="6_58w2e"]
 [ext_resource type="PackedScene" uid="uid://di4pl6rwwassr" path="res://Scenes/player.tscn" id="7_d0nvf"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_2mhnx"]
@@ -17,22 +15,6 @@ script = ExtResource("1_nyao4")
 [node name="Basic Platform" parent="." instance=ExtResource("2_8alop")]
 position = Vector2(7, -10)
 scale = Vector2(2, 1)
-
-[node name="Red Platform" parent="." instance=ExtResource("3_1f2wf")]
-position = Vector2(154, 199)
-scale = Vector2(0.360001, 0.4)
-
-[node name="Blue_Platform" parent="." instance=ExtResource("4_ykkdp")]
-position = Vector2(654, 181)
-scale = Vector2(0.359999, 0.868464)
-
-[node name="Green_Platform" parent="." instance=ExtResource("5_44wh1")]
-position = Vector2(1080, 181)
-scale = Vector2(2.1462, 2.58175)
-
-[node name="Orange_Platform" parent="." instance=ExtResource("6_58w2e")]
-position = Vector2(1476, 185)
-scale = Vector2(2.11855, 2.48745)
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 position = Vector2(13, 0)
@@ -103,3 +85,23 @@ scale = Vector2(3.75088, 5.03338)
 text = "E"
 horizontal_alignment = 1
 uppercase = true
+
+[node name="Red Platforms" type="Node" parent="."]
+
+[node name="Red Platform" parent="Red Platforms" instance=ExtResource("3_1f2wf")]
+position = Vector2(244, -94)
+scale = Vector2(0.262789, 0.509137)
+
+[node name="Red Platform2" parent="Red Platforms" instance=ExtResource("3_1f2wf")]
+position = Vector2(297, -678)
+scale = Vector2(0.263, 0.509)
+
+[node name="Blue Platforms" type="Node" parent="."]
+
+[node name="Blue_Platform2" parent="Blue Platforms" instance=ExtResource("4_ykkdp")]
+position = Vector2(1212, -459)
+scale = Vector2(0.292, -0.781)
+
+[node name="Blue_Platform" parent="Blue Platforms" instance=ExtResource("4_ykkdp")]
+position = Vector2(1162.75, 240.114)
+scale = Vector2(0.292, -0.781)
